@@ -1,0 +1,33 @@
+﻿
+@{
+    ViewBag.Title = "Post’s Requests";
+    Layout = "~/Views/Shared/_DashboardLayout.cshtml";
+}
+
+@foreach(var item in Model)
+{
+    <br />
+    <div class="row">
+        <div class="card text-center offset-3 col-6">
+            <div class="card-header">
+                <div class="font-weight-bolder">@item.Agency.agencyName</div>
+            </div>
+            <div class="card-body">
+                <img src="@Url.Content(item.tripImage)" class="card-img-top" alt="Trip Image">
+                <h5 class="card-title mt-2">@item.title</h5>
+                <p class="card-text">
+                    Trip Date: @item.tripDate.ToString("MM/dd/yyyy hh:mm tt")
+                    <br />
+                    Destination: @item.tripDestination
+                </p>
+                <p class="card-text">
+                    @item.details
+                </p>
+                <a href="@Url.Action("AcceptRequest", "Admin", new { id = item.PostId })" class="btn btn-primary mr-2">Accept</a>
+                <a href="@Url.Action("RefuseRequest", "Admin", new { id = item.PostId })" class="btn btn-danger ml-2">Refuse</a>
+            </div>
+            <div class="card-footer text-muted font-weight-bolder">@item.postDate.ToString("MM/dd/yyyy hh:mm tt")</div>
+        </div>
+    </div>
+    <br />
+}

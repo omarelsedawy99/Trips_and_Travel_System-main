@@ -1,0 +1,162 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+</head>
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="#">Travel<i style="color: darkgrey;font-weight: bolder;font-size: 24px;">&infin;</i></a>
+            </div>
+            <ul class="nav navbar-nav navbar-right">
+                <li class="nav-item">
+                    <a class="nav-link" href="#" data-toggle="modal" data-target="#LoginModal"><span class="fa fa-sign-in"></span> Login</a>
+                </li>
+                <li class="nav-item ml-4">
+                    <a class="nav-link" href="#" data-toggle="modal" data-target="#SignupModal"><span class="fa fa-user"></span> Sign Up</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <!--Login Modal-->
+    <div class="modal fade" id="LoginModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header text-white bg-dark">
+                    <h5 class="modal-title">Login</h5>
+                    <button class="close" data-dismiss="modal"><span>&times;</span></button>
+                </div>
+                <div class="modal-body">
+                    <div class="offset-2 col-8 pt-5">
+                        <form action="@Url.Action("Login", "Admin")" method="post" enctype="multipart/form-data" class="form-horizontal form-group">
+                            <div class="form-group">
+                                <label>Email:</label>
+                                <input name="email" class="form-control" value="">
+                            </div><br />
+                            <div class="form-group">
+                                <label>Password:</label>
+                                <input name="password" type="password" class="form-control" value="">
+                            </div><br />
+                            <div class="form-group">
+                                <button type="submit" class="btn btn-success  mt-2" style="width: 100%;height: 10%;">Login</button>
+                            </div><br />
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--Register Modal-->
+    <div class="modal fade" id="SignupModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header text-white bg-dark">
+                    <h5 class="modal-title">Login</h5>
+                    <button class="close" data-dismiss="modal"><span>&times;</span></button>
+                </div>
+                <div class="modal-body">
+                    <div class="offset-2 col-8 pt-5">
+                        <form action="@Url.Action("Signup", "Admin")" method="post" enctype="multipart/form-data" class="form-horizontal form-group">
+                            <div class="form-group">
+                                <label>Profile Picture:</label>
+                                <input type="file" class="form-control" name="Img" style="border: none;">
+                            </div><br />
+                            <div class="form-group">
+                                <label>First Name:</label>
+                                <input name="firstName" class="form-control" value="">
+                            </div><br />
+                            <div class="form-group">
+                                <label>Last Name:</label>
+                                <input name="lastName" class="form-control" value="">
+                            </div><br />
+                            <div class="form-group">
+                                <label>Phone:</label>
+                                <input name="phone" class="form-control" value="">
+                            </div><br />
+                            <div class="form-group">
+                                <label>Username:</label>
+                                <input name="username" class="form-control" value="">
+                            </div><br />
+                            <div class="form-group">
+                                <label>Email:</label>
+                                <input name="email" class="form-control" value="">
+                            </div><br />
+                            <div class="form-group">
+                                <label>Password:</label>
+                                <input name="password" class="form-control" value=""><br />
+                                <input class="form-control" value="" placeholder="Confirm Password">
+                            </div><br />
+                            <div class="form-group">
+                                <label>Role</label>
+                                <select name="roleId" class="form-control form-control-sm">
+                                    <option value="2">Agency</option>
+                                    <option value="3">Traveler</option>
+                                </select>
+                            </div><br />
+                            <div class="form-group">
+                                <button type="submit" class="btn btn-success  mt-2" style="width: 100%;height: 10%;">Login</button>
+                            </div><br />
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container body-content">
+        @RenderBody()
+    </div>
+
+    <footer class="bg-dark text-center text-white">
+        <div class="container p-3">
+            <a class="btn btn-floating rounded-circle" style="background-color: #3b5998" href="#!" role="button">
+                <i class="fa fa-facebook-f"></i>
+            </a>
+
+            <a class="btn btn-floating rounded-circle" style="background-color: #55acee" href="#!" role="button">
+                <i class="fa fa-twitter"></i>
+            </a>
+
+            <a class="btn btn-floating rounded-circle" style="background-color: #dd4b39" href="#!" role="button">
+                <i class="fa fa-google"></i>
+            </a>
+
+            <a class="btn btn-floating rounded-circle" style="background-color: #ac2bac" href="#!" role="button">
+                <i class="fa fa-instagram"></i>
+            </a>
+
+            <a class="btn btn-floating rounded-circle" style="background-color: #0082ca" href="#!" role="button">
+                <i class="fa fa-linkedin"></i>
+            </a>
+
+            <a class="btn btn-floating rounded-circle" style="background-color: #ffff" href="#!" role="button">
+                <i class="fa fa-github"></i>
+            </a>
+        </div>
+        <div class="text-center p-1" style="background-color: rgba(0, 0, 0, 0.2);">
+            Copyright © MAS 2021
+        </div>
+    </footer>
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    <script>
+        $(document).ready(function () {
+            $("#myInput").on("keyup", function () {
+                var value = $(this).val().toLowerCase();
+                $("#myTable tr").filter(function () {
+                    $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+                });
+            });
+        });
+    </script>
+    @RenderSection("scripts", required: false)
+</body>
+</html>

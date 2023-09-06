@@ -1,0 +1,79 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">
+                <img src="~/Assets/Images/logo.png" alt="logo" width="50" height="50">
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a id="ProfileLink" class="nav-link" href="@Url.Action("Profile", "Admin")">Proflie</a>
+                    </li>
+                    <li class="nav-item">
+                        <a id="UsersLink" class="nav-link" href="@Url.Action("Users", "Admin")">Users</a>
+                    </li>
+                    <li class="nav-item">
+                        <a id="PostsLink" class="nav-link" href="@Url.Action("Posts", "Admin")">Posts</a>
+                    </li>
+                    <li class="nav-item">
+                        <a id="PostRequestsLink" class="nav-link" href="@Url.Action("PostsRequests", "Admin")">Post&apos;s Requests</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="@Url.Action("Logout", "Admin")">Logout</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container body-content">
+        @RenderBody()
+    </div>
+
+    <footer class="bg-dark text-center text-white">
+        <div class="container p-3">
+            <a class="btn btn-floating rounded-circle" style="background-color: #3b5998" href="#!" role="button">
+                <i class="fa fa-facebook-f"></i>
+            </a>
+
+            <a class="btn btn-floating rounded-circle" style="background-color: #55acee" href="#!" role="button">
+                <i class="fa fa-twitter"></i>
+            </a>
+
+            <a class="btn btn-floating rounded-circle" style="background-color: #dd4b39" href="#!" role="button">
+                <i class="fa fa-google"></i>
+            </a>
+
+            <a class="btn btn-floating rounded-circle" style="background-color: #ac2bac" href="#!" role="button">
+                <i class="fa fa-instagram"></i>
+            </a>
+
+            <a class="btn btn-floating rounded-circle" style="background-color: #0082ca" href="#!" role="button">
+                <i class="fa fa-linkedin"></i>
+            </a>
+
+            <a class="btn btn-floating rounded-circle" style="background-color: #ffff" href="#!" role="button">
+                <i class="fa fa-github"></i>
+            </a>
+        </div>
+        <div class="text-center p-1" style="background-color: rgba(0, 0, 0, 0.2);">
+            Copyright © MAS 2021
+        </div>
+    </footer>
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+</body>
+</html>

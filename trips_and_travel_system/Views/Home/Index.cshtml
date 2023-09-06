@@ -1,0 +1,44 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_WallLayout.cshtml";
+}
+
+<div class="row">
+    <input class="form-control my-4" id="myInput" type="text" placeholder="Search.."><br />
+    <div class="panel col-12 py-3">
+        <div class="panel-body table-responsive">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th class="col-1">Agency</th>
+                        <th class="col-1">Title</th>
+                        <th class="col-5">Details</th>
+                        <th class="col-1">Price</th>
+                        <th class="col-2">Trip Date</th>
+                        <th class="col-1">Destination</th>
+                        <th class="col-1">Image</th>
+                    </tr>
+                </thead>
+                <tbody id="myTable">
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>@item.Agency.agencyName</td>
+                            <td>@item.title</td>
+                            <td>@item.details</td>
+                            <td>@item.tripPrice</td>
+                            <td>@item.tripDate.ToString("yyyy-MM-dd\nhh:mm") </td>
+                            <td>@item.tripDestination</td>
+                            <td>
+                                <div class="user_icon rounded-circle">
+                                    <img class="rounded" src="@Url.Content(item.tripImage)" alt="" style="width:80px;height:60px;">
+                                </div>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

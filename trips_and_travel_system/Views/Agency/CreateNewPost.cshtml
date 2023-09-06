@@ -1,0 +1,60 @@
+﻿
+@{
+    ViewBag.Title = "Create New Post";
+    Layout = "~/Views/Shared/_FactoryLayout.cshtml";
+}
+
+<div class="offset-2 col-8 pt-5">
+    <form action="@Url.Action("CreateNewPost", "Agency")" method="post" enctype="multipart/form-data" class="form-horizontal form-group">
+        <input name="AgencyId" type="hidden" value="@ViewBag.AgencyId" />
+        <div class="form-group">
+            <button type="button" class="btn btn-dark" style="width: 100%;" data-toggle="modal" data-target="#UploadImgModal">
+                Upload Post&apos;s Picture
+            </button>
+        </div>
+        <div class="form-group">
+            <label>Trip Title:</label>
+            <input name="title" class="form-control">
+        </div><br />
+        <div class="form-group">
+            <label>Trip Date:</label>
+            <input name="tripDate" type="datetime-local" class="form-control">
+        </div><br />
+        <div class="form-group">
+            <label>Destination:</label>
+            <input name="tripDestination" class="form-control">
+        </div><br />
+        <div class="form-group">
+            <label>Details:</label>
+            <textarea name="details" class="form-control" rows="5"></textarea>
+        </div>
+        <div class="form-group">
+            <label>Price:</label>
+            <input name="tripPrice" class="form-control" type="number">
+        </div><br />
+        <div class="form-group">
+            <button type="submit" class="btn btn-success  mt-2" style="width: 100%;height: 10%;">Post</button>
+        </div><br />
+        <!-- Modal -->
+        <div class="modal fade" id="UploadImgModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                    <div class="modal-header text-white bg-dark">
+                        <h5 class="modal-title">Upload Image</h5>
+                        <button class="close" data-dismiss="modal"><span>&times;</span></button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="form-group">
+                            <input name="Img" type="file" class="form-control" style="border: none;">
+                        </div>
+                        <div class="modal-footer" style="border: none;">
+                            <button data-dismiss="modal" class="btn btn-dark">Upload Image</button>
+                            <button class="btn btn-dark" data-dismiss="modal">Close</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+
